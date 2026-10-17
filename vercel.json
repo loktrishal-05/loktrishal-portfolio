@@ -1,9 +1,17 @@
 {
   "version": 2,
+  "git": {
+    "deploymentEnabled": {
+      "pa/json-certificates": false
+    }
+  },
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "certificates.js", "use": "@vercel/static" },
+    { "src": "data/certificates.json", "use": "@vercel/static" }
   ],
   "routes": [
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
