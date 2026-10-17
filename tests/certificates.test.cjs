@@ -38,6 +38,7 @@ test("preserves all three existing labels from JSON", () => {
   const entries = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/certificates.json"), "utf8"));
   const target = container();
   assert.equal(renderCertificates(target, entries), 3);
+  assert.ok(target.children.every((row) => row.attributes.role === "listitem"));
   assert.deepEqual(target.children.map((row) => row.children[0].textContent), [
     "Power BI — Data Visualization (Certified)",
     "Data Science Training Program",

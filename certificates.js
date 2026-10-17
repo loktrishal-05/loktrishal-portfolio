@@ -37,6 +37,7 @@
       }
       const row = document.createElement("div");
       row.className = "cert-item";
+      row.setAttribute("role", "listitem");
       const url = credentialUrl(entry.credential_url);
       const label = document.createElement(url ? "a" : "span");
       let text = entry.title.trim();
@@ -64,6 +65,7 @@
     if (count === 0) {
       const row = document.createElement("div");
       row.className = "cert-item";
+      row.setAttribute("role", "listitem");
       row.textContent = "No certifications listed yet.";
       fragment.appendChild(row);
     }
@@ -82,6 +84,7 @@
     } catch {
       const row = container.ownerDocument.createElement("div");
       row.className = "cert-item";
+      row.setAttribute("role", "listitem");
       row.textContent = "Certifications are temporarily unavailable.";
       container.replaceChildren(row);
     } finally {
